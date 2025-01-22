@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Planet</title>
+    <base th:href="@{http://localhost:8080/fanbase/}"/>
+
+</head>
+<body>
+<div id="root">
+    <div th:replace="~{header :: authSection}"></div>
+    <form th:if="${session.loggedUser != null}" action="#" th:action="@{add/favourite/planet}" method="post">
+        <input type="hidden" id="id" th:name="id" th:value="${planet.getId()}">
+        <input type="submit" value="favourite">
+    </form>
+    <h1 th:text="${planet.name}"></h1>
+    <div>
+        <p>
+            <strong>Diameter:</strong>
+            <span th:text="${planet.diameter == -1 || planet.diameter == 0 ? 'No data/does not apply' : planet.diameter}"></span>
+        </p>
+        <p>
+            <strong>Rotation Period:</strong>
+            <span th:text="${planet.rotationPeriod == -1 ? 'No data/does not apply' : planet.rotationPeriod}"></span>
+        </p>
+        <p>
+            <strong>Orbital Period:</strong>
+            <span th:text="${planet.orbitalPeriod == -1 ? 'No data/does not apply' : planet.orbitalPeriod}"></span>
+        </p>
+        <p>
+            <strong>Gravity:</strong>
+            <span th:text="${planet.gravity == -1 ? 'No data/does not apply' : planet.gravity}"></span>
+        </p>
+        <p>
+            <strong>Population:</strong>
+            <span th:text="${planet.population == -1 ? 'No data/does not apply' : planet.population}"></span>
+        </p>
+        <p><strong>Climate:</strong> <span th:text="${planet.climate}"></span></p>
+        <p><strong>Terrain:</strong> <span th:text="${planet.terrain}"></span></p>
+        <p>
+            <strong>Surface Water Percentage:</strong>
+            <span th:text="${planet.surfaceWaterPercentage == -1 ? 'No data/does not apply' : planet.surfaceWaterPercentage}"></span>
+        </p>
+    </div>
+</div>
+</body>
+</html>

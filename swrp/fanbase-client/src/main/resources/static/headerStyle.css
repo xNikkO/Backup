@@ -1,0 +1,59 @@
+
+#searchForm input[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+#auth-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #ecf0f1;
+    padding: 10px 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#auth-section a {
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+#auth-section a:hover {
+    color: #1c5984;
+    text-decoration: underline;
+}
+
+#login, #register{
+    padding: 5px 10px;
+    border: 1px solid #3498db;
+    border-radius: 4px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#login:hover, #register:hover {
+    background-color: #3498db;
+}
+
+#profile a {
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
+#profile a:last-child {
+    color: red;
+    font-weight: bold;
+}
+
+#home {
+    color: #2980b9;
+}
+
+#home:hover{
+    color: #2981b9;
+}

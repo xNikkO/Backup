@@ -1,0 +1,6 @@
+rootProject.name = 'fanbase-data-updater'
+
+include 'fanbase-data'
+project(':fanbase-data').projectDir = new File(settingsDir,'../fanbase-data')
+include 'fanbase-swapi-client'
+project(':fanbase-swapi-client').projectDir = new File(settingsDir,'../fanbase-swapi-client')

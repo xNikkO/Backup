@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Film</title>
+    <base th:href="@{http://localhost:8080/fanbase/}"/>
+</head>
+<body>
+<div id="root">
+    <div th:replace="~{header :: authSection}"></div>
+
+    <h1 th:text="${film.title}"></h1>
+    <form th:if="${session.loggedUser != null}" action="#" th:action="@{add/favourite/film}" method="post">
+        <input type="hidden" id="id" th:name="id" th:value="${film.getId()}">
+        <input type="submit" value="favourite">
+
+    </form>
+    <div>
+        <p>
+            <strong>Episode ID:</strong>
+            <span th:text="${film.episodeId == -1 ? 'No data/does not apply' : film.episodeId}"></span>
+        </p>
+        <p><strong>Opening Crawl:</strong></p>
+        <pre th:text="${film.openingCrawl}"></pre>
+        <p><strong>Director:</strong> <span th:text="${film.director}"></span></p>
+        <p>
+            <strong>Release Date:</strong>
+            <span th:text="${film.releaseDate != null ? #dates.format(film.releaseDate, 'yyyy-MM-dd') : 'No data/does not apply'}"></span>
+        </p>
+        <p><strong>Characters in Film:</strong></p>
+        <ul>
+            <li th:each="character : ${charactersInFilm}">
+                <a th:href="@{character/id/{id}(id=${character.id})}" th:text="${character.name}"></a>
+            </li>
+            <li th:if="${charactersInFilm == null || #lists.isEmpty(charactersInFilm)}">No data/does not apply</li>
+        </ul>
+        <p><strong>Planets in Film:</strong></p>
+        <ul>
+            <li th:each="planet : ${planetsInFilm}">
+                <a th:href="@{planet/id/{id}(id=${planet.id})}" th:text="${planet.name}"></a>
+            </li>
+            <li th:if="${planetsInFilm == null || #lists.isEmpty(planetsInFilm)}">No data/does not apply</li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

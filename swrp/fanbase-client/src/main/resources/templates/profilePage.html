@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your SW Fanbase profile!</title>
+    <base th:href="@{http://localhost:8080/fanbase/}"/>
+    <link rel="stylesheet" href="/profileStyles.css">
+
+</head>
+<body>
+<div id="root">
+    <h1 th:text="${session.loggedUser.nickname}"></h1>
+    <p><strong>Login:</strong> <span th:text="${session.loggedUser.login}"></span></p>
+  <p><strong>Favourite character:</strong>
+    <span th:if="${favChar == null}"> None</span>
+    <span th:if="${favChar != null}">
+      <a th:href="@{character/id/{id}(id=${favChar.getId()})}" th:text="${favChar.getName()}"></a>
+    </span>
+  </p>
+  <p><strong>Favourite planet:</strong>
+    <span th:if="${favPlanet == null}"> None</span>
+    <span th:if="${favPlanet != null}">
+        <a th:href="@{planet/id/{id}(id=${favPlanet.getId()})}" th:text="${favPlanet.getName()}"></a>
+    </span>
+  </p>
+  <p><strong>Favourite movie:</strong>
+    <span th:if="${favMovie == null}"> None</span>
+    <span th:if="${favMovie != null}">
+      <a th:href="@{film/id/{id}(id=${favMovie.getId()})}" th:text="${favMovie.getTitle()}"></a>
+    </span>
+  </p>
+    <a th:href="@{main}" id="home">Home</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Species</title>
+    <base th:href="@{http://localhost:8080/fanbase/}" />
+</head>
+<body>
+<div id="root">
+    <div th:replace="~{header :: authSection}"></div>
+    <h1 th:text="${species.name}"></h1>
+    <div>
+        <p><strong>Classification:</strong> <span th:text="${species.classification}"></span></p>
+        <p><strong>Designation:</strong> <span th:text="${species.designation}"></span></p>
+        <p>
+            <strong>Average Height:</strong>
+            <span th:text="${species.averageHeight == -1 ? 'No data/does not apply' : species.averageHeight}"></span>
+        </p>
+        <p>
+            <strong>Average Lifespan:</strong>
+            <span th:text="${species.averageLifespan == -1 ? 'No data/does not apply' : species.averageLifespan}"></span>
+        </p>
+        <p><strong>Language:</strong> <span th:text="${species.language}"></span></p>
+        <p th:if="${originPlanet != null}">
+            <strong>Origin planet:</strong>
+            <a th:href="@{planet/id/{id}(id=${originPlanet.id})}" th:text="${originPlanet.name}"></a>
+        </p>
+        <p th:if="${originPlanet == null}">
+            <strong>Origin:</strong> <span>No data/does not apply</span>
+        </p>
+    </div>
+</div>
+</body>
+</html>

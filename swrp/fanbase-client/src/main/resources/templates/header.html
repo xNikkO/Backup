@@ -1,0 +1,14 @@
+<div th:fragment="authSection">
+  <div id="auth-section">
+    <a th:href="@{main}" id="home">Home</a>
+    <div id="reglog" th:if="${session.loggedUser == null}">
+      <a id="login" th:href="@{login}">Login</a>
+      <a id="register" th:href="@{register}">Register</a>
+    </div>
+    <div id="profile" th:if="${session.loggedUser != null}">
+      <a th:href="@{profile}" th:text="${session.loggedUser.nickname}"></a>
+      <a th:href="@{logout}">Logout</a>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login to SW Fanbase</title>
+    <base th:href="@{http://localhost:8080/fanbase/}"/>
+    <link rel="stylesheet" href="/loginStyles.css">
+</head>
+<body>
+<div id="root">
+  <form action="#" th:action="@{login}" th:object="${user}" method="post">
+    <label for="login">Enter your login:</label>
+    <input type="text" id="login" name="login" th:field="${user.login}" required>
+    <label for="password">Enter your password</label>
+    <input type="password" id="password" name="password" th:field="${user.password}" required>
+    <input type="submit" id="submit" value="login">
+      <a th:href="@{main}" id="home">Home</a>
+  </form>
+</div>
+</body>
+</html>

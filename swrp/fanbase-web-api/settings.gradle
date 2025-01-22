@@ -1,0 +1,4 @@
+rootProject.name = 'fanbase-web-api'
+
+include 'fanbase-data'
+project(':fanbase-data').projectDir = new File(settingsDir,'../fanbase-data')

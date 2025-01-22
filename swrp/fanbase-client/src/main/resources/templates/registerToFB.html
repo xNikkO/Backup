@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register To SW Fanbase!</title>
+    <base th:href="@{http://localhost:8080/fanbase/}"/>
+</head>
+<body>
+<div id="root">
+  <form action="#" th:action="@{register}" th:object="${user}" method="post">
+    <label for="login">Enter your login:</label>
+    <input type="text" id="login" name="login" th:field="${user.login}">
+
+    <label for="password">Enter your password:</label>
+    <input type="password" id="password" name="password" th:field="${user.password}">
+
+    <label for="passwordConfirm">Confirm your password:</label>
+    <input type="password" id="passwordConfirm" name="passwordConfirm">
+
+    <label for="nickname">Enter your nickname</label>
+    <input type="text" id="nickname" name="nickname" th:field="${user.nickname}">
+
+    <input type="submit" id="submit" value="register">
+    <a th:href="main">Cancel</a>
+
+  </form>
+</div>
+</body>
+</html>

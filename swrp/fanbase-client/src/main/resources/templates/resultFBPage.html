@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SW Fanbase Results</title>
+    <base th:href="@{http://localhost:8080/fanbase/}" />
+    <link rel="stylesheet" href="/headerStyle.css">
+    <link rel="stylesheet" href="/resultsStyles.css">
+</head>
+<body>
+<div id="root">
+    <div th:replace="~{header :: authSection}"></div>
+
+    <form action="#" th:action="main" method="post">
+        <input type="text" id="searchParam" name="searchParam" required>
+        <input type="submit" value="Search">
+    </form>
+    <h1>Results:</h1>
+    <div class="record" th:each="character : ${characters}">
+        <a th:href="@{character/id/{id}(id=${character.getId()})}" th:text="${character.getName()}"></a>
+    </div>
+    <div class="record" th:each="planet : ${planets}">
+        <a th:href="@{planet/id/{id}(id=${planet.getId()})}"  th:text="${planet.getName()}"></a>
+    </div>
+    <div class="record" th:each="species : ${speciesList}">
+        <a th:href="@{species/id/{id}(${species.getId()})}" th:text="${species.getName()}"></a>
+    </div>
+    <div class="record" th:each="film : ${films}">
+        <a th:href="@{film/id/{id}(id=${film.getId()})}" th:text="${film.getTitle()}"></a>
+    </div>
+</div>
+</body>
+</html>

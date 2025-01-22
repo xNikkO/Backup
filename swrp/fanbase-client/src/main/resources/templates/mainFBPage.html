@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SW Fanbase!</title>
+    <link rel="stylesheet" href="/mainStyle.css">
+    <link rel="stylesheet" href="/headerStyle.css">
+    <base th:href="@{http://localhost:8080/fanbase/}"/>
+
+</head>
+<body>
+<div id="root">
+    <div th:replace="~{header :: authSection}"></div>
+
+    <h1>Welcome to Star Wars Fanbase!</h1>
+  <h2>Unfortunately, you are able only to research basic data ... at least you can create and manage your account ;)</h2>
+
+  <form action="#" th:action="main" method="post" id="searchForm">
+      <input type="text" id="searchParam" name="searchParam" required>
+      <input type="submit" value="Search">
+  </form>
+
+</div>
+</body>
+</html>
